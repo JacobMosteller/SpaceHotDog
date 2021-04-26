@@ -620,6 +620,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2022589317, guid: 1f75362e9731cab4788818cfcb943e87, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2314868062646703464, guid: 1f75362e9731cab4788818cfcb943e87, type: 3}
       propertyPath: m_Name
       value: HotDog
