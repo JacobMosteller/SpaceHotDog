@@ -4,18 +4,19 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    Rigidbody erectBody;
-    AudioSource audioSource;
     [SerializeField] float thrust;
     [SerializeField] float rotate;
-    // Start is called before the first frame update
+    [SerializeField] AudioClip thrustClip;
+    [SerializeField] ParticleSystem thrustParticals;
+
+    Rigidbody erectBody;
+    AudioSource audioSource;
     void Start()
     {
         erectBody = GetComponent<Rigidbody>();
         audioSource = GetComponent<AudioSource>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         ProcesseThrust();
@@ -30,6 +31,7 @@ public class Movement : MonoBehaviour
         }
         else 
         {
+            thrustParticals.Stop();
             audioSource.Stop();
         }
     }
@@ -38,28 +40,37 @@ public class Movement : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.A))
         {
-            ApplyRotation(rotate);
+            ApplyRotationLeft();
         }
         else if (Input.GetKey(KeyCode.D))
         {
-            ApplyRotation(-rotate);
+            ApplyRotationRight();
         }
+
     }
 
-    void ApplyRotation(float frameRotation)
+    void ApplyRotationLeft()
     {
         erectBody.freezeRotation = true;
-        transform.Rotate(Vector3.forward * frameRotation * Time.deltaTime);
+        transform.Rotate(Vector3.forward * rotate * Time.deltaTime);
+        erectBody.freezeRotation = false;
+    }
+    void ApplyRotationRight()
+    {
+        erectBody.freezeRotation = true;
+        transform.Rotate(Vector3.forward * -rotate * Time.deltaTime);
         erectBody.freezeRotation = false;
     }
 
     void ApplyThrust()
     {
+        thrustParticals.Play();
         if(!audioSource.isPlaying)
         {
-            audioSource.Play();
+            audioSource.PlayOneShot(thrustClip);
         }
         erectBody.AddRelativeForce(Vector3.up * thrust * Time.deltaTime);
           
     }
+    
 }
