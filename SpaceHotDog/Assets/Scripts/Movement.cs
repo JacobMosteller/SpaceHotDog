@@ -8,6 +8,8 @@ public class Movement : MonoBehaviour
     [SerializeField] float rotate;
     [SerializeField] AudioClip thrustClip;
     [SerializeField] ParticleSystem thrustParticals;
+    [SerializeField] ParticleSystem leftThrust;
+    [SerializeField] ParticleSystem rightThrust;
 
     Rigidbody erectBody;
     AudioSource audioSource;
@@ -51,12 +53,14 @@ public class Movement : MonoBehaviour
 
     void ApplyRotationLeft()
     {
+        leftThrust.Play();
         erectBody.freezeRotation = true;
         transform.Rotate(Vector3.forward * rotate * Time.deltaTime);
         erectBody.freezeRotation = false;
     }
     void ApplyRotationRight()
     {
+        rightThrust.Play();
         erectBody.freezeRotation = true;
         transform.Rotate(Vector3.forward * -rotate * Time.deltaTime);
         erectBody.freezeRotation = false;
