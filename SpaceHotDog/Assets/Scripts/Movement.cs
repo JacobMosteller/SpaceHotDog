@@ -22,7 +22,8 @@ public class Movement : MonoBehaviour
     void Update()
     {
         ProcesseThrust();
-        ProcessRotation();
+        ProcessRotationRight();
+        ProcessRotationLeft();
     }
 
     void ProcesseThrust()
@@ -38,29 +39,47 @@ public class Movement : MonoBehaviour
         }
     }
 
-    void ProcessRotation()
+    void ProcessRotationLeft()
     {
         if (Input.GetKey(KeyCode.A))
         {
             ApplyRotationLeft();
         }
-        else if (Input.GetKey(KeyCode.D))
+        else 
         {
-            ApplyRotationRight();
+            leftThrust.Stop();
         }
 
     }
 
+    private void ProcessRotationRight()
+    {
+        if (Input.GetKey(KeyCode.D))
+        {
+            ApplyRotationRight();
+        }
+        else
+        {
+            rightThrust.Stop();
+        }
+    }
+
     void ApplyRotationLeft()
     {
-        leftThrust.Play();
+        if(!leftThrust.isPlaying)
+        {
+            leftThrust.Play();
+        }
         erectBody.freezeRotation = true;
         transform.Rotate(Vector3.forward * rotate * Time.deltaTime);
         erectBody.freezeRotation = false;
     }
     void ApplyRotationRight()
     {
-        rightThrust.Play();
+        if(!rightThrust.isPlaying)
+        {
+            rightThrust.Play();
+        }
         erectBody.freezeRotation = true;
         transform.Rotate(Vector3.forward * -rotate * Time.deltaTime);
         erectBody.freezeRotation = false;
@@ -68,7 +87,10 @@ public class Movement : MonoBehaviour
 
     void ApplyThrust()
     {
-        thrustParticals.Play();
+        if(!thrustParticals.isPlaying)
+        {
+            thrustParticals.Play();
+        }
         if(!audioSource.isPlaying)
         {
             audioSource.PlayOneShot(thrustClip);

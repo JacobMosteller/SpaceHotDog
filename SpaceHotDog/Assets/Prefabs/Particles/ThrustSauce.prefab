@@ -117,7 +117,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 2
+      scalar: 1
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -4861,6 +4861,10 @@ PrefabInstance:
       propertyPath: playOnAwake
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 615733000382443241, guid: 535824efa6599624389c095a2def68ce, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2727571148402033276, guid: 535824efa6599624389c095a2def68ce, type: 3}
       propertyPath: m_Name
       value: MustardSauce
@@ -4926,6 +4930,10 @@ PrefabInstance:
     - target: {fileID: 615733000382443241, guid: e205ce0690238cb4d91d96ee2b776aa0, type: 3}
       propertyPath: playOnAwake
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 615733000382443241, guid: e205ce0690238cb4d91d96ee2b776aa0, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2727571148402033276, guid: e205ce0690238cb4d91d96ee2b776aa0, type: 3}
       propertyPath: m_Name

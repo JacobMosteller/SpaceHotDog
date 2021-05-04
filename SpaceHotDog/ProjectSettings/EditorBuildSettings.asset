@@ -6,9 +6,18 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/GreenBlob.unity
+    path: Assets/Scenes/Level 1.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
-    path: Assets/Scenes/UpperBlob.unity
-    guid: e162e6fb14413884c90229e7ddaa90ee
+    path: Assets/Scenes/Level 2.unity
+    guid: dbe04af26e39bf94db24a833eaf68e95
+  - enabled: 1
+    path: Assets/Scenes/Level 3.unity
+    guid: a59577e617e76e949a50cd983407d4b4
+  - enabled: 1
+    path: Assets/Scenes/Level 4.unity
+    guid: 7472507db115ceb4e8429e67acb81cf0
+  - enabled: 1
+    path: Assets/Scenes/Level 5.unity
+    guid: b18c4419fe83cc9448ec5a2e6b230d33
   m_configObjects: {}
